@@ -1,0 +1,402 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <link href="_static/favicon-16x16.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="_static/favicon-32x32.png" sizes="32x32" rel="icon" type="image/png"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Troubleshooting" href="Troubleshooting.html" /><link rel="prev" title="Usage" href="Usage.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Known issues &amp; limitations - MotoROS2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">MotoROS2 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/yaskawa-y-logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">MotoROS2 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Requirements.html">General Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Downloading.html">Downloading the files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">Usage</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Known issues &amp; limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">Provisional roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ROS API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Actions.html">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Topics.html">Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Services.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/TF.html">Transforms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from source code</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/yaskawa-global/motoros2/edit/main/doc/KnownIssuesAndLimitations.rst" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="known-issues-limitations">
+<h1>Known issues &amp; limitations<a class="headerlink" href="#known-issues-limitations" title="Permalink to this heading">#</a></h1>
+<p>MotoROS2 is still under development.
+As such, there are currently a number of known issues and limitations users should be aware of and should take into account.</p>
+<p>This section documents these and provides work-arounds where possible.</p>
+<section id="only-fastdds-is-supported">
+<h2>Only FastDDS is supported<a class="headerlink" href="#only-fastdds-is-supported" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: the current implementation of MotoROS2 can only communicate with ROS 2 applications which use eProsima FastDDS as their RMW layer.
+None of the other RMWs are supported, including Cyclone DDS, which is the default RMW of ROS 2 Galactic.</p>
+<p>Symptoms of this incompatibility are seemingly functional ROS 2 network connections, where topics are succesfully published and subscribed to, but service invocations and action goal submissions appear to <em>hang</em>.</p>
+<p><strong>Note</strong>: ROS 2 Foxy, ROS 2 Humble and ROS 2 Rolling all use FastDDS by default.
+If you haven’t changed your default RMW, you should not need to change anything for MotoROS2.</p>
+<p><strong>Work-around</strong>: unfortunately, this limitation is caused by a middleware-layer incompatibility with respect to how service requests are (de)serialised by the respective RMWs (<a class="reference external" href="https://github.com/ros2/rmw_cyclonedds/issues/184">ros2/rmw_cyclonedds#184</a>), and without significant changes to the way MotoROS2 operates, has no known work-around.</p>
+<p>Users with ROS 2 Galactic installed could install the <code class="docutils literal notranslate"><span class="pre">ros-galactic-rmw-fastrtps-cpp</span></code> package and run <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">RMW_IMPLEMENTATION=rmw_fastrtps_cpp</span></code> before using any ROS 2 functionality on their host systems.
+Note that the <code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> environment variable must be <code class="docutils literal notranslate"><span class="pre">export</span></code>ed to all shells which are used to run ROS 2 applications.</p>
+<p>Please note that the <code class="docutils literal notranslate"><span class="pre">ros-galactic-rmw-fastrtps-cpp</span></code> package must be install <em>prior</em> to building the client application workspace.
+If the workspace has already been built, it must be rebuilt after installing the package.</p>
+<p>Refer to <a class="reference external" href="https://docs.ros.org/en/humble/How-To-Guides/Working-with-multiple-RMW-implementations.html">Working with multiple ROS 2 middleware implementations</a> in the ROS 2 documentation for more information about configuring different RMWs with ROS 2.</p>
+</section>
+<section id="maximum-length-of-trajectories">
+<h2>Maximum length of trajectories<a class="headerlink" href="#maximum-length-of-trajectories" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: due to controller resource constraints and implementation details of micro-ROS, MotoROS2 imposes an upper limit on the number of <code class="docutils literal notranslate"><span class="pre">JointTrajectoryPoint</span></code>s in <code class="docutils literal notranslate"><span class="pre">JointTrajectory</span></code>s submitted as part of <code class="docutils literal notranslate"><span class="pre">control_msgs/FollowJointTrajectory</span></code> action goals.</p>
+<p>This maximum number of points in a single trajectory is currently <strong>200</strong>.</p>
+<p>This number was derived from testing on a two-robot system (12 axes total).
+On larger systems with more control groups, it is possible 200 points may exceed the memory threshold for transmission.</p>
+<p>Unfortunately, due to a known issue with micro-ROS (<a class="reference external" href="https://github.com/micro-ROS/micro-ROS-Agent/issues/143">micro-ROS/micro-ROS-Agent#143</a>), MotoROS2 currently cannot check whether incoming trajectories are too long, nor can MotoROS2 notify the action client in case trajectories in those cases.</p>
+<p>Please make sure to check trajectory length <em>before</em> submitting goals, as client applications are currently responsible for making sure trajectories do not go over this limit.</p>
+<p><strong>Note</strong>: this is strictly a limit on the <em>number of trajectory points</em>, not on the total time duration of a trajectory.</p>
+<p><strong>Work-around</strong>: client applications could split long trajectories into smaller sections, each no longer than the maximum of <code class="docutils literal notranslate"><span class="pre">200</span></code> trajectory points.
+While motion continuity will not be maintained between trajectories, this approach would allow for longer (as in: longer in time) motions to be commanded by a ROS 2 client.
+Whether this would be an acceptable work-around depends on whether the application and the motions it uses support natural stopping points or dwell times.</p>
+<p>If the memory threshold is exceeded due to a large trajectory, then the robot will not be notified of the commanded trajectory.
+Clients should utilize an appropriate timeout to detect whether the robot responds to a commanded trajectory.</p>
+</section>
+<section id="no-support-for-asynchronous-motion">
+<h2>No support for asynchronous motion<a class="headerlink" href="#no-support-for-asynchronous-motion" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: MotoROS2 currently only supports synchronous motion across all motion groups configured on the Yaskawa controller.
+Controllers with multiple motion groups are supported, but motion groups cannot execute motions independently from each other.</p>
+<p><strong>Work-around</strong>: none at this time.
+However, goals which move only a subset of groups (and/or joints) can be created: retrieve the current state of all groups and update target poses for the groups (and/or joints) which should move only.
+By keeping the state of all other groups (and/or joints) static, those groups (and/or joints) will not move.</p>
+<p>This is not true asynchronous motion, but could allow for some use-cases to still be implemented with the current versions of MotoROS2.</p>
+</section>
+<section id="no-support-for-partial-goals">
+<h2>No support for partial goals<a class="headerlink" href="#no-support-for-partial-goals" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: goals submitted to MotoROS2 <em>must</em> always include information for all groups and all joints configured on the controller, even if those groups or joints are not supposed to move.
+So called <em>partial goals</em> are currently not supported and will be rejected by MotoROS2.</p>
+<p><strong>Work-around</strong>: please refer to the work-around described in <a class="reference external" href="#no-support-for-asynchronous-motion">No support for asynchronous motion</a>.</p>
+</section>
+<section id="upper-limit-to-publishing-frequency">
+<h2>Upper limit to publishing frequency<a class="headerlink" href="#upper-limit-to-publishing-frequency" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: the frequency for publishing topics is configurable in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+Initial testing has revealed that the MotoROS2 is limited to about 100 Hz.</p>
+<p><strong>Work-around</strong>: none at this time.
+The issue is being investigated.</p>
+</section>
+<section id="incorrect-transform-tree-origin-with-multi-robot-setups">
+<h2>Incorrect transform tree origin with multi-robot setups<a class="headerlink" href="#incorrect-transform-tree-origin-with-multi-robot-setups" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: when configured to broadcast TF frames for controllers with multiple robots, the origins of the transform trees for the different robot groups will be coincident, unless the group combination has been calibrated.
+For example, an <code class="docutils literal notranslate"><span class="pre">R1+R2</span></code> configuration, without calibration, will have the origins of the transform trees for <code class="docutils literal notranslate"><span class="pre">R1</span></code> and <code class="docutils literal notranslate"><span class="pre">R2</span></code> in the same place, making their TF trees overlap.</p>
+<p><strong>Solution</strong>: perform the calibration for the robot group(s).
+Refer to the relevant Yaskawa Motoman documentation for more information on how to perform a robot-to-robot calibration.</p>
+<p>After robot-calibration, the transform between the shared <code class="docutils literal notranslate"><span class="pre">world</span></code> frame and each robot’s <code class="docutils literal notranslate"><span class="pre">base</span></code> frame will be known, and MotoROS2 will include it in the transforms it broadcasts.</p>
+</section>
+<section id="not-compatible-with-simple-connect">
+<h2>Not compatible with Simple Connect<a class="headerlink" href="#not-compatible-with-simple-connect" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: <em>Simple Connect</em> is an application installed by Yaskawa America to manage peripheral equipment in a robotic work cell.
+It is primarily installed on robots that were purchased with an arc-welding configuration.
+This application is not compatible with MotoROS2 at this time.</p>
+<p><strong>Work-around</strong>: none at this time. Simple Connect must be removed to run MotoROS2.</p>
+</section>
+<section id="memory-leak">
+<h2>Memory leak<a class="headerlink" href="#memory-leak" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: there is a small memory leak which occurs each time the micro-ROS Agent disconnects from the controller.</p>
+<p><strong>Work-around</strong>: none at this time.
+The issue is being investigated.</p>
+</section>
+<section id="some-group-combinations-wont-publish-data">
+<h2>Some group combinations won’t publish data<a class="headerlink" href="#some-group-combinations-wont-publish-data" title="Permalink to this heading">#</a></h2>
+<p><strong>Description</strong>: it has been observed that an R1+R2+S1 system will not publish data <code class="docutils literal notranslate"><span class="pre">/joint_states</span></code> or <code class="docutils literal notranslate"><span class="pre">/tf</span></code>.
+All other topics and services work as expected.</p>
+<p><strong>Work-around</strong>: such a multi-group system would need to be broken up into a independent systems.
+(E.g. <code class="docutils literal notranslate"><span class="pre">R1+R2+S1</span></code> would be broken up into <code class="docutils literal notranslate"><span class="pre">R1+S1</span></code> and another <code class="docutils literal notranslate"><span class="pre">R1</span></code>).</p>
+<p>The cause of this behavior is unknown.
+The issue is being investigated.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="Troubleshooting.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Troubleshooting</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="Usage.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Usage</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Ted Miller (Yaskawa America Inc), G.A. vd. Hoorn (Delft University of Technology)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Known issues &amp; limitations</a><ul>
+<li><a class="reference internal" href="#only-fastdds-is-supported">Only FastDDS is supported</a></li>
+<li><a class="reference internal" href="#maximum-length-of-trajectories">Maximum length of trajectories</a></li>
+<li><a class="reference internal" href="#no-support-for-asynchronous-motion">No support for asynchronous motion</a></li>
+<li><a class="reference internal" href="#no-support-for-partial-goals">No support for partial goals</a></li>
+<li><a class="reference internal" href="#upper-limit-to-publishing-frequency">Upper limit to publishing frequency</a></li>
+<li><a class="reference internal" href="#incorrect-transform-tree-origin-with-multi-robot-setups">Incorrect transform tree origin with multi-robot setups</a></li>
+<li><a class="reference internal" href="#not-compatible-with-simple-connect">Not compatible with Simple Connect</a></li>
+<li><a class="reference internal" href="#memory-leak">Memory leak</a></li>
+<li><a class="reference internal" href="#some-group-combinations-wont-publish-data">Some group combinations won’t publish data</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    </body>
+</html>

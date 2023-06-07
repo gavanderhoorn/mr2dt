@@ -1,0 +1,1025 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <link href="_static/favicon-16x16.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="_static/favicon-32x32.png" sizes="32x32" rel="icon" type="image/png"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Frequently Asked Questions" href="faq.html" /><link rel="prev" title="Known issues &amp; limitations" href="KnownIssuesAndLimitations.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Troubleshooting - MotoROS2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">MotoROS2 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/yaskawa-y-logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">MotoROS2 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Requirements.html">General Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Downloading.html">Downloading the files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KnownIssuesAndLimitations.html">Known issues &amp; limitations</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Roadmap.html">Provisional roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ROS API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Actions.html">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Topics.html">Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/Services.html">Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_api/TF.html">Transforms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from source code</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/yaskawa-global/motoros2/edit/main/doc/Troubleshooting.rst" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">#</a></h1>
+<section id="debug-log-client">
+<h2>Debug log client<a class="headerlink" href="#debug-log-client" title="Permalink to this heading">#</a></h2>
+<p>This repository contains a debugging log client script in the <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder.
+It listens for debug output from MotoROS2, displays it on the console and logs it to a file in a session log (<code class="docutils literal notranslate"><span class="pre">*.txt</span></code>).</p>
+<p>The log client is written in Python, and can be run on Windows and Linux.
+To start it, either run it manually (in a <code class="docutils literal notranslate"><span class="pre">cmd</span></code> or Bash session) using <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">/path/to/debug_listener.py</span></code>, or on Windows by double-clicking the <code class="docutils literal notranslate"><span class="pre">debug_listener.cmd</span></code> file.</p>
+<p>Note: you <em>must</em> have a recent version of Python 3 installed on the machine you intend to run the script on (the authors have tested the script with Python <code class="docutils literal notranslate"><span class="pre">3.8</span></code>, but newer versions are also expected to be compatible).
+On Windows, <code class="docutils literal notranslate"><span class="pre">python.exe</span></code> <em>must</em> be on the <code class="docutils literal notranslate"><span class="pre">%PATH%</span></code> (ie: you should be able to start <code class="docutils literal notranslate"><span class="pre">python</span></code> in a <code class="docutils literal notranslate"><span class="pre">cmd</span></code> shell from any location, without having to specify the path).</p>
+<p>By default, logs will be written to the current working directory (<code class="docutils literal notranslate"><span class="pre">CWD</span></code>).
+On Windows the <code class="docutils literal notranslate"><span class="pre">.cmd</span></code> file changes the <code class="docutils literal notranslate"><span class="pre">CWD</span></code> to the location of the script before starting it, so all logs will end up in the <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder.</p>
+<p>When you encounter an issue using MotoROS2, please start the debug client script and keep it running in the background while you reproduce the issue.
+Attach the log it produces and a copy of the <code class="docutils literal notranslate"><span class="pre">PANELBOX.LOG</span></code> from the robot’s teach pendant to any support tickets you open on the <a class="reference external" href="https://github.com/yaskawa-global/motoros2/issues">Issue tracker</a>.</p>
+</section>
+<section id="motoros2-error-and-alarm-codes">
+<h2>MotoROS2 error and alarm codes<a class="headerlink" href="#motoros2-error-and-alarm-codes" title="Permalink to this heading">#</a></h2>
+<section id="error-3200-nop-or-end-instruction-not-found">
+<h3>ERROR 3200: NOP or END instruction not found<a class="headerlink" href="#error-3200-nop-or-end-instruction-not-found" title="Permalink to this heading">#</a></h3>
+<p>The robot controller requires all files use Windows-style end-of-line terminator.
+This is <code class="docutils literal notranslate"><span class="pre">&lt;carriage</span> <span class="pre">return&gt;&lt;line</span> <span class="pre">feed&gt;</span></code>.
+Many common text editors in the Linux environment will automatically standardize all EOL terminators to be Unix-style; this removes the <code class="docutils literal notranslate"><span class="pre">&lt;carriage</span> <span class="pre">return&gt;</span></code>, resulting in the error message.</p>
+<p><em>Solution:</em>
+Open this job file in a text editor that allows you to use Windows-style EOL (<code class="docutils literal notranslate"><span class="pre">&lt;0xD&gt;&lt;0xA&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;CR&gt;&lt;LF&gt;</span></code>) or, given that the job is relatively small, manually recreate the job using the programming pendant.
+Another alternative is to copy the <code class="docutils literal notranslate"><span class="pre">.jbi</span></code> and <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files under Windows.</p>
+</section>
+<section id="error-4120-concurrent-i-o-memory-is-full">
+<h3>ERROR 4120: Concurrent I/O memory is full<a class="headerlink" href="#error-4120-concurrent-i-o-memory-is-full" title="Permalink to this heading">#</a></h3>
+<p>This error can occur when attempting to load the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+It will occur if the SRAM drive was not initialized in the <a class="reference external" href="../README.md#installation">installation procedure</a>.</p>
+<p>Please note that this error can also occur if the SRAM storage is full.
+This can occur if another application, such as Simple Connect, is using the storage.
+The files for the other application must be removed to make room for MotoROS2.</p>
+<p><em>How to initialize SRAM drive:</em></p>
+<ol class="arabic simple">
+<li><p>turn on the robot controller while holding the <code class="docutils literal notranslate"><span class="pre">{Main</span> <span class="pre">Menu}</span></code> key on the keypad to enter <em>Maintenance</em> mode.</p></li>
+<li><p>upgrade to <em>MANAGEMENT</em> security level by touching <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> (default password is all <code class="docutils literal notranslate"><span class="pre">9</span></code>’s)</p></li>
+<li><p>touch <code class="docutils literal notranslate"><span class="pre">[File]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Initialize]</span></code> and select <code class="docutils literal notranslate"><span class="pre">USER</span> <span class="pre">DEFINED</span> <span class="pre">FILES</span></code></p></li>
+<li><p>select <code class="docutils literal notranslate"><span class="pre">SRAM</span> <span class="pre">RAM</span> <span class="pre">DRIVE</span></code> and initialize it</p></li>
+</ol>
+</section>
+<section id="alarm-1020-5">
+<h3>Alarm: 1020[5]<a class="headerlink" href="#alarm-1020-5" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 1020
+ MOTOPLUS APPLICATION LOAD ERROR
+[5]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+This alarm occurs in conjunction with <code class="docutils literal notranslate"><span class="pre">1050</span></code> and <code class="docutils literal notranslate"><span class="pre">4207</span></code>.
+It is caused due to missing symbols when building from source.</p>
+<p>Make sure the MotoROS2 binary is linked against all the required libraries.
+The provided Visual Studio solution should be set up correctly.
+Pay special attention to any errors or warnings displayed by Visual Studio as part of the build process.</p>
+<p>If the error persists, you may need to upgrade the robot controller system software.
+Please contact Yaskawa technical support for assistance with upgrading the controller.</p>
+</section>
+<section id="alarm-1020-6">
+<h3>Alarm: 1020[6]<a class="headerlink" href="#alarm-1020-6" title="Permalink to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 1020
+ MOTOPLUS APPLICATION LOAD ERROR
+[6]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+This alarm occurs in conjunction with <code class="docutils literal notranslate"><span class="pre">1050</span></code> and <code class="docutils literal notranslate"><span class="pre">4207</span></code>.
+There are two possible causes for this alarm.</p>
+<ol class="arabic simple">
+<li><p>Corruption of the MotoROS2 binary</p></li>
+<li><p>Using MotoROS2 binary built for the wrong controller model</p></li>
+</ol>
+<p>To remedy 1: download a fresh copy of the correct MotoROS2 binary and verify integrity of the file.</p>
+<p><em>Note</em>: make sure to check the binary copied to the removable medium (ie: usb stick or SD card), as corruption of files during transfer to such a medium is also possible.</p>
+<p>To remedy 2: make sure that you are downloading the binary for your controller model.
+For example, the YRC1000 binary will not run on an DX200.</p>
+</section>
+<section id="alarm-1050-1">
+<h3>Alarm: 1050[1]<a class="headerlink" href="#alarm-1050-1" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 1050
+ SET-UP PROCESS ERROR(SYSCON)
+[1]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+If this alarm occurs in conjunction with <code class="docutils literal notranslate"><span class="pre">1020</span></code> (subcode <code class="docutils literal notranslate"><span class="pre">5</span></code> or <code class="docutils literal notranslate"><span class="pre">6</span></code>) and <code class="docutils literal notranslate"><span class="pre">4207</span></code> (subcode <code class="docutils literal notranslate"><span class="pre">1101</span></code>), please refer to <a class="reference external" href="#alarm-10205">Alarm: 1020[5 - 6]</a>.</p>
+</section>
+<section id="alarm-4207-1101">
+<h3>Alarm: 4207[1101]<a class="headerlink" href="#alarm-4207-1101" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 4207
+ SYSTEM ERROR(MOTION)
+[1101]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+If this alarm occurs in conjunction with <code class="docutils literal notranslate"><span class="pre">1020</span></code> (subcode <code class="docutils literal notranslate"><span class="pre">5</span></code> or <code class="docutils literal notranslate"><span class="pre">6</span></code>) and <code class="docutils literal notranslate"><span class="pre">1050</span></code> (subcode <code class="docutils literal notranslate"><span class="pre">1</span></code>), please refer to <a class="reference external" href="#alarm-10205">Alarm: 1020[5 - 6]</a>.</p>
+</section>
+<section id="alarm-4430-6">
+<h3>Alarm: 4430[6]<a class="headerlink" href="#alarm-4430-6" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 4430
+ CPU COMMUNICATION ERROR
+[6]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+This alarm occurs if you run the DX100 version of the <code class="docutils literal notranslate"><span class="pre">INIT_ROS</span></code> Inform job on a non-DX100 controller.
+Please delete the <code class="docutils literal notranslate"><span class="pre">INIT_ROS</span></code> job from your pendant and replace it with the version for all other controllers.</p>
+</section>
+<section id="alarm-4997-4">
+<h3>Alarm: 4997[4]<a class="headerlink" href="#alarm-4997-4" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 4997
+ M-SAF DATA CRC UNMATCH
+[4]
+ALARM 8001
+ Speed FB enabled, reboot now.
+[10]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+This alarm occurs if the FSU is enabled when installing MotoROS2.
+The MotoROS2 driver attempts to enable the <em>Speed Feedback</em> parameters, but is unable to change the required parameters due to FSU settings.
+You must temporarily disable the CRC check for the <em>Speed Feedback</em> update to complete.</p>
+<p>Touch <code class="docutils literal notranslate"><span class="pre">[RESET]</span></code> to clear the active alarm.
+Switch the pendant to TEACH mode.
+Then, from the main menu, touch <code class="docutils literal notranslate"><span class="pre">[System]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>SAFETY</em> security level (the default password is all <code class="docutils literal notranslate"><span class="pre">5</span></code>s).
+Then touch <code class="docutils literal notranslate"><span class="pre">[Setup]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Function</span> <span class="pre">Enable]</span></code>.
+Navigate to <em>SAVE DATA CRC CHECK FUNC (FSU)</em>.
+Set this feature to <em>INVALID</em> and reboot the controller in normal mode.</p>
+<p>After rebooting, you should receive <code class="docutils literal notranslate"><span class="pre">Alarm</span> <span class="pre">8001</span> <span class="pre">[10]</span></code> (“Speed FB enabled, reboot now”).
+Now <em>Speed Feedback</em> has been permanently enabled.</p>
+<p>Reboot once more and follow the steps above to re-enable the <em>SAVE DATA CRC CHECK FUNC (FSU)</em>.</p>
+</section>
+<section id="alarm-8001-10">
+<h3>Alarm: 8001[10]<a class="headerlink" href="#alarm-8001-10" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8001
+ Speed FB enabled, reboot now
+[10]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+This alarm is a one-time notice that feedback speed data has been automatically enabled.
+This information will automatically be included with the feedback position data that is published as <code class="docutils literal notranslate"><span class="pre">JointState</span></code> messages.
+When the alarm occurs, reboot the robot controller.
+You should not see this alarm again.</p>
+</section>
+<section id="alarm-8003-100-111">
+<h3>Alarm: 8003[100 - 111]<a class="headerlink" href="#alarm-8003-100-111" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2: Controller cfg invalid
+[100]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Your robot controller requires internal configuration changes to support the MotoROS2 driver.</p>
+<p>For YRC1000 and YRC1000micro: ensure the controller is updated to at least <code class="docutils literal notranslate"><span class="pre">YAS2.80.00-00</span></code> (for YRC1000) and <code class="docutils literal notranslate"><span class="pre">YBS2.31.00-00</span></code> (for YRC1000micro).
+If the system software version is below this, please contact Yaskawa Motoman for assistance with upgrading the controller.</p>
+<p>Then boot the controller into <em>Maintenance</em> mode by holding <code class="docutils literal notranslate"><span class="pre">{Main</span> <span class="pre">Menu}</span></code> on the keypad.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Setup]</span></code> then select <code class="docutils literal notranslate"><span class="pre">OPTION</span> <span class="pre">FUNCTION</span></code>.
+Cursor down to <code class="docutils literal notranslate"><span class="pre">MOTOMAN</span> <span class="pre">DRIVER</span></code> and set this to <code class="docutils literal notranslate"><span class="pre">USED</span></code>.
+Now reboot the robot controller.</p>
+</section>
+<section id="alarm-8003-1">
+<h3>Alarm: 8003[1]<a class="headerlink" href="#alarm-8003-1" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set RS000=2
+[1]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[RS]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">RS000</span> <span class="pre">=</span> <span class="pre">2</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-2">
+<h3>Alarm: 8003[2]<a class="headerlink" href="#alarm-8003-2" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C541=0
+[2]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C541</span> <span class="pre">=</span> <span class="pre">0</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-3">
+<h3>Alarm: 8003[3]<a class="headerlink" href="#alarm-8003-3" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C542=0
+[3]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C542</span> <span class="pre">=</span> <span class="pre">0</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-4">
+<h3>Alarm: 8003[4]<a class="headerlink" href="#alarm-8003-4" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C1100=1
+[4]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C1100</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-5">
+<h3>Alarm: 8003[5]<a class="headerlink" href="#alarm-8003-5" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C1103=2
+[5]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C1103</span> <span class="pre">=</span> <span class="pre">2</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-6">
+<h3>Alarm: 8003[6]<a class="headerlink" href="#alarm-8003-6" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C1117=1
+[6]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C1117</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Then reboot your robot controller.</p>
+</section>
+<section id="alarm-8003-7">
+<h3>Alarm: 8003[7]<a class="headerlink" href="#alarm-8003-7" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 Cfg: Set S2C1119=0 or 2
+[7]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An internal parameter is not set properly in the robot controller.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[Parameter]</span></code>→<code class="docutils literal notranslate"><span class="pre">[S2C]</span></code> and set the value of <code class="docutils literal notranslate"><span class="pre">S2C1119</span></code>.
+A value of <code class="docutils literal notranslate"><span class="pre">2</span></code> will enable the telnet option to see any output messages from the MotoROS2 driver.
+A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> will disable the telnet option.
+Reboot your robot controller after changing this parameter.</p>
+</section>
+<section id="alarm-8003-8">
+<h3>Alarm: 8003[8]<a class="headerlink" href="#alarm-8003-8" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 not compatible with PFL
+[8]
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 not compatible with HC10
+[8]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Old versions of the MotoROS2 driver are not compatible with the human-collaborative (HC) robots.
+You must update to v1.9.0 or newer.
+Reboot the robot controller while holding <code class="docutils literal notranslate"><span class="pre">{Main</span> <span class="pre">Menu}</span></code> on the keypad to enter <em>Maintenance</em> mode.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[MotoPlus</span> <span class="pre">Apl]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Delete]</span></code>.
+Select the <code class="docutils literal notranslate"><span class="pre">MotoROS2.out</span></code> file and press <code class="docutils literal notranslate"><span class="pre">{Enter}</span></code> to confirm removal of the MotoROS2 driver.
+Now follow the installation tutorial to install the latest version.</p>
+<p>Additionally, the robot controller must meet a minimum version of system software.
+For YRC1000, the controller must have <code class="docutils literal notranslate"><span class="pre">YAS2.80.00-00</span></code> or higher.
+For YRC1000micro, the controller must have <code class="docutils literal notranslate"><span class="pre">YBS2.31.00-00</span></code> or higher.
+Please contact Yaskawa technical support for assistance in upgrading the controller software.</p>
+</section>
+<section id="alarm-8003-9">
+<h3>Alarm: 8003[9]<a class="headerlink" href="#alarm-8003-9" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ MotoROS2 not compatible with HC10
+[9]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Old versions of the MotoROS2 driver are not compatible with the human-collaborative (HC) robots.
+You must update to v1.9.0 or newer.
+Reboot the robot controller while holding <code class="docutils literal notranslate"><span class="pre">{Main</span> <span class="pre">Menu}</span></code> on the keypad to enter <em>Maintenance</em> mode.
+Touch <code class="docutils literal notranslate"><span class="pre">[System</span> <span class="pre">Info]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Security]</span></code> and upgrade to <em>MANAGEMENT</em> security level.
+Then touch <code class="docutils literal notranslate"><span class="pre">[MotoPlus</span> <span class="pre">Apl]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Delete]</span></code>.
+Select the <code class="docutils literal notranslate"><span class="pre">MotoROS2.out</span></code> file and press <code class="docutils literal notranslate"><span class="pre">{Enter}</span></code> to confirm removal of the MotoROS2 driver.
+Now follow the installation tutorial to install the latest version.</p>
+<p>Additionally, the robot controller must meet a minimum version of system software.
+For YRC1000, the controller must have <code class="docutils literal notranslate"><span class="pre">YAS2.80.00-00</span></code> or higher.
+For YRC1000micro, the controller must have <code class="docutils literal notranslate"><span class="pre">YBS2.31.00-00</span></code> or higher.
+Please contact Yaskawa technical support for assistance in upgrading the controller software.</p>
+</section>
+<section id="alarm-8003-11">
+<h3>Alarm: 8003[11]<a class="headerlink" href="#alarm-8003-11" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8003
+ HC/Convey trking not compatible
+[11]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The Yaskawa Conveyor Tracking function is not compatible with HC robots.
+Please contact Yaskawa technical support to have Conveyor Tracking function disabled.</p>
+</section>
+<section id="alarm-8010-2">
+<h3>Alarm: 8010[2]<a class="headerlink" href="#alarm-8010-2" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8010
+ FAILED TO CREATE TASK
+[2]
+</pre></div>
+</div>
+<p><em>Solution:</em></p>
+<p>This alarm is caused by having another MotoPlus application installed on the system which is using task-priority level <code class="docutils literal notranslate"><span class="pre">MP_PRI_IP_CLK_TAKE</span></code>.
+There can only be one <code class="docutils literal notranslate"><span class="pre">MP_PRI_IP_CLK_TAKE</span></code> task installed on the system, and it is required for <code class="docutils literal notranslate"><span class="pre">MotoROS2</span></code>.</p>
+<p>Either remove the additional MotoPlus application(s) installed on the controller, or modify the source code of the additional application so that it doesn’t use <code class="docutils literal notranslate"><span class="pre">MP_PRI_IP_CLK_TAKE</span></code>.</p>
+</section>
+<section id="alarm-8010-xx">
+<h3>Alarm: 8010[xx]<a class="headerlink" href="#alarm-8010-xx" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8010
+ FAILED TO CREATE TASK
+[0]
+</pre></div>
+</div>
+<p><em>Solution:</em></p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference external" href="../README.md#installation">setup instructions</a> to ensure that <code class="docutils literal notranslate"><span class="pre">MotoPlus</span> <span class="pre">FUNC.</span></code> and <code class="docutils literal notranslate"><span class="pre">MOTOMAN</span> <span class="pre">DRIVER</span></code> have been enabled.</p></li>
+<li><p>Verify there are no other MotoPlus applications (<code class="docutils literal notranslate"><span class="pre">.out</span></code> file) installed on the robot controller.</p></li>
+<li><p>Contact Yaskawa support to request that they enable additional MotoPlus tasks.</p></li>
+</ol>
+</section>
+<section id="alarm-8011-xx">
+<h3>Alarm: 8011[xx]<a class="headerlink" href="#alarm-8011-xx" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ MotoROS2: Fatal Error
+[0]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Check the <a class="reference external" href="../README.md#installation">setup instructions</a> to ensure that the robot controller is configured properly.</p>
+<p>If the behavior persists, save a copy of the debug-listener script output and the <code class="docutils literal notranslate"><span class="pre">PANELBOX.LOG</span></code> from the robot’s teach pendant.
+Open a new issue on the <a class="reference external" href="https://github.com/yaskawa-global/motoros2/issues">Issue tracker</a>, describe the problem and attach <code class="docutils literal notranslate"><span class="pre">PANELBOX.LOG</span></code> and the debug log to the issue.
+Include a verbatim copy of the alarm text as seen on the teach pendant (alarm number and <code class="docutils literal notranslate"><span class="pre">[subcode]</span></code>).</p>
+</section>
+<section id="alarm-8011-15">
+<h3>Alarm: 8011[15]<a class="headerlink" href="#alarm-8011-15" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Domain ID (x) invalid
+[15]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">ros_domain_id</span></code> key must be configured in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+The value must be between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">101</span></code>.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8011-16">
+<h3>Alarm: 8011[16]<a class="headerlink" href="#alarm-8011-16" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Missing Agent IP/Port
+[16]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">agent_ip_address</span></code> and <code class="docutils literal notranslate"><span class="pre">agent_port_number</span></code> keys must be configured in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+This must be the IP address of the PC that runs the micro-ROS Agent application.
+The port must match the number that was used when <a class="reference external" href="../README.md#the-micro-ros-agent">starting the agent</a> (default is <code class="docutils literal notranslate"><span class="pre">8888</span></code>).</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8011-17">
+<h3>Alarm: 8011[17]<a class="headerlink" href="#alarm-8011-17" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Agent IP on wrong subnet
+[17]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">agent_ip_address</span></code> key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is an address that is not reachable by the robot controller.</p>
+<p>Options:</p>
+<ol class="arabic simple">
+<li><p>Modify the <code class="docutils literal notranslate"><span class="pre">agent_ip_address</span></code> key and specify an IP address that is on the robot’s subnet.
+Now follow the instructions <a class="reference external" href="../README.md#updating-the-configuration">to propagate the changes to the Yaskawa controller</a>.</p></li>
+<li><p>Modify the robot controller’s IP so it is on the Agent’s subnet.</p></li>
+<li><p>Modify the robot controller’s network settings to add a gateway which can reach the Agent’s IP address.</p></li>
+</ol>
+<p>Refer to the relevant Yaskawa Motoman documentation for information on how to change the controller’s network configuration.</p>
+</section>
+<section id="alarm-8011-19">
+<h3>Alarm: 8011[19]<a class="headerlink" href="#alarm-8011-19" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Must enable ETHERNET function
+[19]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The ETHERNET function must be enabled for one (or both) LAN interface in the robot controller.
+Please contact your local Yaskawa representative to request this function.</p>
+</section>
+<section id="alarm-8011-20">
+<h3>Alarm: 8011[20]<a class="headerlink" href="#alarm-8011-20" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ MotoROS2 - Multiple Instances
+[20]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Multiple instances of the MotoROS2 MotoPlus application have been detected.
+Only one instance may run on a single robot controller.</p>
+<ol class="arabic simple">
+<li><p>turn on the robot controller while holding the <code class="docutils literal notranslate"><span class="pre">{Main</span> <span class="pre">Menu}</span></code> key on the keypad to enter <em>Maintenance</em> mode.</p></li>
+<li><p>touch <code class="docutils literal notranslate"><span class="pre">[MotoPlus</span> <span class="pre">APL]</span></code>→<code class="docutils literal notranslate"><span class="pre">[Delete]</span></code> and remove any extra <code class="docutils literal notranslate"><span class="pre">.out</span></code> files that have been installed.</p></li>
+<li><p>check the <code class="docutils literal notranslate"><span class="pre">CN102</span></code> USB port on the CPU board inside the controller cabinet. If there are any <code class="docutils literal notranslate"><span class="pre">.out</span></code> files on the root of this drive, delete them.</p></li>
+</ol>
+</section>
+<section id="alarm-8011-21">
+<h3>Alarm: 8011[21]<a class="headerlink" href="#alarm-8011-21" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Must specify node name
+[21]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">node_name</span></code> key must be configured in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+The name must not be blank.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8011-22">
+<h3>Alarm: 8011[22]<a class="headerlink" href="#alarm-8011-22" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8011
+ Must specify INFORM job name
+[22]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">inform_job_name</span></code> key must be configured in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+The name must not be blank.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8012-xx">
+<h3>Alarm: 8012[xx]<a class="headerlink" href="#alarm-8012-xx" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8012
+ OUT OF MEMORY
+[0]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Verify there are no other MotoPlus applications (<code class="docutils literal notranslate"><span class="pre">.out</span></code> file) installed on the robot controller.</p>
+<p>If the behavior persists, save a copy of the debug-listener script output and the <code class="docutils literal notranslate"><span class="pre">PANELBOX.LOG</span></code> from the robot’s teach pendant.
+Open a new issue on the <a class="reference external" href="https://github.com/yaskawa-global/motoros2/issues">Issue tracker</a>, describe the problem and attach <code class="docutils literal notranslate"><span class="pre">PANELBOX.LOG</span></code> and the debug log to the issue.
+Include a verbatim copy of the alarm text as seen on the teach pendant (alarm number and <code class="docutils literal notranslate"><span class="pre">[subcode]</span></code>).</p>
+</section>
+<section id="alarm-8013-0">
+<h3>Alarm: 8013[0]<a class="headerlink" href="#alarm-8013-0" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Missing MotoROS2 cfg file
+[0]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Follow the <a class="reference external" href="../README.md#installation">setup instructions</a> to load the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file.
+Be sure to follow the steps for initializing SRAM and setting the <code class="docutils literal notranslate"><span class="pre">S2C</span></code> parameters.</p>
+</section>
+<section id="alarm-8013-1">
+<h3>Alarm: 8013[1]<a class="headerlink" href="#alarm-8013-1" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Fail to copy config file
+[1]
+ALARM 8013
+ Set S2C1102=2; Init SRAMDRV.DAT
+[1]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Set robot parameter <code class="docutils literal notranslate"><span class="pre">S2C1102</span> <span class="pre">=</span> <span class="pre">2</span></code> and follow the <a class="reference external" href="../README.md#installation">setup instructions</a> to initialize <code class="docutils literal notranslate"><span class="pre">SRAMDRV.DAT</span></code>.</p>
+</section>
+<section id="alarm-8013-2">
+<h3>Alarm: 8013[2]<a class="headerlink" href="#alarm-8013-2" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Fail to copy config file
+[2]
+ALARM 8013
+ Initialize SRAMDRV.DAT
+[2]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Follow the <a class="reference external" href="../README.md#installation">setup instructions</a> to initialize <code class="docutils literal notranslate"><span class="pre">SRAMDRV.DAT</span></code>.</p>
+</section>
+<section id="alarm-8013-3">
+<h3>Alarm: 8013[3]<a class="headerlink" href="#alarm-8013-3" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid BOOL in motoros2_config
+[3]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+A key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is set to an invalid value.
+Boolean values should be set to either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-4">
+<h3>Alarm: 8013[4]<a class="headerlink" href="#alarm-8013-4" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid QOS in motoros2_config
+[4]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+A key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is set to an invalid value.
+QoS values should be set to either <code class="docutils literal notranslate"><span class="pre">sensor_data</span></code> or <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-5">
+<h3>Alarm: 8013[5]<a class="headerlink" href="#alarm-8013-5" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid executor_sleep_period
+[5]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+A the <code class="docutils literal notranslate"><span class="pre">executor_sleep_period</span></code> key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is set to an invalid value.
+This must be set to an integer value between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> milliseconds.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-6">
+<h3>Alarm: 8013[6]<a class="headerlink" href="#alarm-8013-6" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid fb_publisher_period
+[6]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+A the <code class="docutils literal notranslate"><span class="pre">feedback_publisher_period</span></code> key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is set to an invalid value.
+This must be set to an integer value between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> milliseconds.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-7">
+<h3>Alarm: 8013[7]<a class="headerlink" href="#alarm-8013-7" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid status_monitor_period
+[7]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">controller_status_monitor_period</span></code> key in the <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file is set to an invalid value.
+This must be set to an integer value between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> milliseconds.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-8-or-9">
+<h3>Alarm: 8013[8] or [9]<a class="headerlink" href="#alarm-8013-8-or-9" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Too many remap rules
+[8]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file contains too many remap rules.
+A maximum of 16 rules may be specified.</p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8013-10-or-11">
+<h3>Alarm: 8013[10] or [11]<a class="headerlink" href="#alarm-8013-10-or-11" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8013
+ Invalid remap rule format
+[10]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+The <code class="docutils literal notranslate"><span class="pre">motoros2_config.yaml</span></code> configuration file contains a remap rule that has been specified in the wrong format.</p>
+<p>Example format: <code class="docutils literal notranslate"><span class="pre">remap_rules:</span> <span class="pre">&quot;joint_states:=my_joint_states</span> <span class="pre">read_single_io:=io/read_single&quot;</span></code></p>
+<p>After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+</section>
+<section id="alarm-8014-0">
+<h3>Alarm: 8014[0]<a class="headerlink" href="#alarm-8014-0" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8014
+ MotoROS2 failed to validate job
+[0]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+Follow the <a class="reference external" href="../README.md#installation">setup instructions</a> to ensure that all robot parameters are set correctly.
+In particular, be sure to check <code class="docutils literal notranslate"><span class="pre">S2C1102</span> <span class="pre">=</span> <span class="pre">2</span></code>.</p>
+</section>
+<section id="alarm-8014-1">
+<h3>Alarm: 8014[1]<a class="headerlink" href="#alarm-8014-1" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8014
+ Invalid MotoROS2 job detected
+[1]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+An invalid MotoROS2 INFORM job was detected (the job contains INFORM statements MotoROS2 did not expect).</p>
+<p>If MotoROS2 should use the custom job, instead of a default, auto-generated one, please update the <code class="docutils literal notranslate"><span class="pre">allow_custom_inform_job</span></code> field in the yaml configuration file.
+After correcting the configuration, the <a class="reference external" href="../README.md#updating-the-configuration">changes will need to be propagated to the Yaskawa controller</a>.</p>
+<p>If there is no need to use a customised job, delete the existing job and reboot to allow the default job to be generated.</p>
+<p>If the alarm is posted again after restarting the controller, make sure to allow sufficient time for the controller to properly delete the job (flushing changes to the file system may take some time).
+Allow for at least 20 seconds between deleting the job and restarting the controller.</p>
+</section>
+<section id="alarm-8014-2">
+<h3>Alarm: 8014[2]<a class="headerlink" href="#alarm-8014-2" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8014
+ MotoROS2 failed to generate job
+[2]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+There was a failure when generating the default INFORM job.
+Please obtain the standard job from the Github repository.</p>
+</section>
+<section id="alarm-8014-3">
+<h3>Alarm: 8014[3]<a class="headerlink" href="#alarm-8014-3" title="Permalink to this heading">#</a></h3>
+<p><em>Example:</em></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALARM 8014
+ MotoROS2 failed to load job
+[3]
+</pre></div>
+</div>
+<p><em>Solution:</em>
+There was a failure when generating the default INFORM job.
+Please obtain the standard job from the Github repository and load it using the teach pendant.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="faq.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Frequently Asked Questions</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="KnownIssuesAndLimitations.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Known issues &amp; limitations</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Ted Miller (Yaskawa America Inc), G.A. vd. Hoorn (Delft University of Technology)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#debug-log-client">Debug log client</a></li>
+<li><a class="reference internal" href="#motoros2-error-and-alarm-codes">MotoROS2 error and alarm codes</a><ul>
+<li><a class="reference internal" href="#error-3200-nop-or-end-instruction-not-found">ERROR 3200: NOP or END instruction not found</a></li>
+<li><a class="reference internal" href="#error-4120-concurrent-i-o-memory-is-full">ERROR 4120: Concurrent I/O memory is full</a></li>
+<li><a class="reference internal" href="#alarm-1020-5">Alarm: 1020[5]</a></li>
+<li><a class="reference internal" href="#alarm-1020-6">Alarm: 1020[6]</a></li>
+<li><a class="reference internal" href="#alarm-1050-1">Alarm: 1050[1]</a></li>
+<li><a class="reference internal" href="#alarm-4207-1101">Alarm: 4207[1101]</a></li>
+<li><a class="reference internal" href="#alarm-4430-6">Alarm: 4430[6]</a></li>
+<li><a class="reference internal" href="#alarm-4997-4">Alarm: 4997[4]</a></li>
+<li><a class="reference internal" href="#alarm-8001-10">Alarm: 8001[10]</a></li>
+<li><a class="reference internal" href="#alarm-8003-100-111">Alarm: 8003[100 - 111]</a></li>
+<li><a class="reference internal" href="#alarm-8003-1">Alarm: 8003[1]</a></li>
+<li><a class="reference internal" href="#alarm-8003-2">Alarm: 8003[2]</a></li>
+<li><a class="reference internal" href="#alarm-8003-3">Alarm: 8003[3]</a></li>
+<li><a class="reference internal" href="#alarm-8003-4">Alarm: 8003[4]</a></li>
+<li><a class="reference internal" href="#alarm-8003-5">Alarm: 8003[5]</a></li>
+<li><a class="reference internal" href="#alarm-8003-6">Alarm: 8003[6]</a></li>
+<li><a class="reference internal" href="#alarm-8003-7">Alarm: 8003[7]</a></li>
+<li><a class="reference internal" href="#alarm-8003-8">Alarm: 8003[8]</a></li>
+<li><a class="reference internal" href="#alarm-8003-9">Alarm: 8003[9]</a></li>
+<li><a class="reference internal" href="#alarm-8003-11">Alarm: 8003[11]</a></li>
+<li><a class="reference internal" href="#alarm-8010-2">Alarm: 8010[2]</a></li>
+<li><a class="reference internal" href="#alarm-8010-xx">Alarm: 8010[xx]</a></li>
+<li><a class="reference internal" href="#alarm-8011-xx">Alarm: 8011[xx]</a></li>
+<li><a class="reference internal" href="#alarm-8011-15">Alarm: 8011[15]</a></li>
+<li><a class="reference internal" href="#alarm-8011-16">Alarm: 8011[16]</a></li>
+<li><a class="reference internal" href="#alarm-8011-17">Alarm: 8011[17]</a></li>
+<li><a class="reference internal" href="#alarm-8011-19">Alarm: 8011[19]</a></li>
+<li><a class="reference internal" href="#alarm-8011-20">Alarm: 8011[20]</a></li>
+<li><a class="reference internal" href="#alarm-8011-21">Alarm: 8011[21]</a></li>
+<li><a class="reference internal" href="#alarm-8011-22">Alarm: 8011[22]</a></li>
+<li><a class="reference internal" href="#alarm-8012-xx">Alarm: 8012[xx]</a></li>
+<li><a class="reference internal" href="#alarm-8013-0">Alarm: 8013[0]</a></li>
+<li><a class="reference internal" href="#alarm-8013-1">Alarm: 8013[1]</a></li>
+<li><a class="reference internal" href="#alarm-8013-2">Alarm: 8013[2]</a></li>
+<li><a class="reference internal" href="#alarm-8013-3">Alarm: 8013[3]</a></li>
+<li><a class="reference internal" href="#alarm-8013-4">Alarm: 8013[4]</a></li>
+<li><a class="reference internal" href="#alarm-8013-5">Alarm: 8013[5]</a></li>
+<li><a class="reference internal" href="#alarm-8013-6">Alarm: 8013[6]</a></li>
+<li><a class="reference internal" href="#alarm-8013-7">Alarm: 8013[7]</a></li>
+<li><a class="reference internal" href="#alarm-8013-8-or-9">Alarm: 8013[8] or [9]</a></li>
+<li><a class="reference internal" href="#alarm-8013-10-or-11">Alarm: 8013[10] or [11]</a></li>
+<li><a class="reference internal" href="#alarm-8014-0">Alarm: 8014[0]</a></li>
+<li><a class="reference internal" href="#alarm-8014-1">Alarm: 8014[1]</a></li>
+<li><a class="reference internal" href="#alarm-8014-2">Alarm: 8014[2]</a></li>
+<li><a class="reference internal" href="#alarm-8014-3">Alarm: 8014[3]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    </body>
+</html>
